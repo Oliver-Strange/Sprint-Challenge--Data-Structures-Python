@@ -5,14 +5,29 @@
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
+        # current acts as the index for storage
         self.current = 0
         self.storage = [None]*capacity
 
+    # adds an element to the list, if full it sets current to first index and places new
     def append(self, item):
-        pass
+        # storage in the current place "index" is where the item should go
+        self.storage[self.current] = item
 
+        # if the current value is less than the capacity, add one to current
+        # has to be capacity - 1 because you can't go over the capacity
+        if self.current < self.capacity - 1:
+            self.current += 1
+            # print(self.current)
+
+        elif self.current == self.capacity - 1:
+            self.current = 0
+            # print(self.current)
+
+    # return array of items in placed order
     def get(self):
-        pass
+          # go over each index and return item if index is not None
+        print([item for item in self.storage if item is not None])
 
 
 buffer = RingBuffer(3)
