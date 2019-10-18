@@ -27,7 +27,7 @@ class RingBuffer:
     # return array of items in placed order
     def get(self):
           # go over each index and return item if index is not None
-        print([item for item in self.storage if item is not None])
+        return [item for item in self.storage if item is not None]
 
 
 buffer = RingBuffer(3)
